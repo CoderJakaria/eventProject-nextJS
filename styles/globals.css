@@ -14,3 +14,29 @@ a {
 * {
   box-sizing: border-box;
 }
+
+body {
+  display: grid;
+  place-items: center;
+}
+
+.lists {
+  background: white;
+  box-shadow: 1px 1px 20px gray;
+  width: 300px;
+}
+.list {
+  cursor: pointer;
+  font-size: 20px;
+  padding: 10px;
+  transition: 0.4s;
+  text-align: center;
+}
+.list:hover {
+  background-color: rgb(175, 166, 166);
+}
+
+.poke__pu {
+  display: flex;
+  align-items: center;
+}
