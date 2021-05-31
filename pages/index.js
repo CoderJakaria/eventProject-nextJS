@@ -1,30 +1,14 @@
-import axios from "axios";
-import Head from "next/head";
-import Link from "next/link";
+import React from "react";
+import EventList from "../components/events/EventList";
+import { getFeaturedEvents } from "../dummy_data";
 
-export default function Home({ data }) {
+const HomePage = () => {
+  const featuredEvent = getFeaturedEvents();
   return (
     <div>
-      <Head>
-        <title>Pokemon API</title>
-      </Head>
-
-      {data?.results?.map(resuld => (
-        <div className="lists">
-          <Link href={`/pokemon/${resuld.name}`}>
-            <h2 className="list">{resuld.name}</h2>
-          </Link>
-        </div>
-      ))}
+      <EventList items={featuredEvent} />
     </div>
   );
-}
-
-export const getStaticProps = async () => {
-  const res = await fetch("https://pokeapi.co/api/v2/pokemon-form");
-  const data = await res.json();
-
-  return {
-    props: { data },
-  };
 };
+
+export default HomePage;
